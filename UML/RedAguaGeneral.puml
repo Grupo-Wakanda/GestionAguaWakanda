@@ -1,0 +1,88 @@
+# Actualizar el UML para incluir microservicios y un contenedor de base de datos para gestionar los datos de consumo
+
+uml_gestion_agua_con_microservicios = """
+@startuml
+package "Gestión del Agua" {
+
+  package "Entidades" {
+    class Building {
+      + id: String
+      + name: String
+      + energyConsumption: Double
+    }
+
+    class WaterTreatmentPlant {
+      + id: String
+      + quality: Double
+      + treatWater()
+    }
+
+    Building <|-- WaterTreatmentPlant : is a
+
+    class WaterNetwork {
+      + id: String
+      + status: String
+      + detectLeaks()
+      + monitorPressure()
+    }
+
+    class SmartIrrigation {
+      + id: String
+      + soilMoisture: Double
+      + optimizeIrrigation()
+    }
+  }
+
+  package "Microservicios" {
+    class WaterNetworkService {
+      + monitorNetwork()
+      + detectLeaks()
+    }
+
+    class SmartIrrigationService {
+      + controlIrrigation()
+      + monitorSoilMoisture()
+    }
+
+    class WaterTreatmentService {
+      + monitorQuality()
+      + optimizeTreatment()
+    }
+  }
+
+  package "Gestor de Agua" {
+    class WaterManagementService {
+      + monitorWaterUsage()
+      + optimizeWaterDistribution()
+    }
+  }
+
+  package "Data Management Container" {
+    class DatabaseContainer {
+      + storeWaterData()
+      + queryUsageData()
+      + aggregateMetrics()
+    }
+  }
+
+  WaterNetwork --> WaterNetworkService : monitored by
+  SmartIrrigation --> SmartIrrigationService : controlled by
+  WaterTreatmentPlant --> WaterTreatmentService : monitored by
+  WaterNetworkService --> WaterManagementService : reports to
+  SmartIrrigationService --> WaterManagementService : requests distribution
+  WaterTreatmentService --> WaterManagementService : sends quality data
+
+  WaterNetwork --> DatabaseContainer : stores data
+  SmartIrrigation --> DatabaseContainer : stores irrigation data
+  WaterTreatmentPlant --> DatabaseContainer : stores treatment data
+  DatabaseContainer --> WaterManagementService : provides analytics
+}
+@enduml
+"""
+
+# Guardar el UML actualizado con microservicios y base de datos
+uml_gestion_agua_con_microservicios_path = "/mnt/data/GestionAguaConMicroservicios.puml"
+with open(uml_gestion_agua_con_microservicios_path, "w") as file:
+    file.write(uml_gestion_agua_con_microservicios)
+
+uml_gestion_agua_con_microservicios_path

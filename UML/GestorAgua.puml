@@ -1,0 +1,11 @@
+# 5. Water Management
+uml_elements["WaterManagement"] = """
+@startuml
+package "Gestor de Agua" {
+  class WaterManagementService {
+    + monitorWaterUsage()
+    + optimizeWaterDistribution()
+  }
+}
+@enduml
+"""

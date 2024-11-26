@@ -1,0 +1,20 @@
+# 3. Water Treatment Plant
+uml_elements["WaterTreatmentPlant"] = """
+@startuml
+package "Planta de Tratamiento de Agua" {
+  class Building {
+    + id: String
+    + name: String
+    + energyConsumption: Double
+  }
+
+  class WaterTreatmentPlant {
+    + id: String
+    + quality: Double
+    + treatWater()
+  }
+
+  Building <|-- WaterTreatmentPlant : is a
+}
+@enduml
+"""

@@ -1,0 +1,21 @@
+# 4. Microservices
+uml_elements["Microservices"] = """
+@startuml
+package "Microservicios" {
+  class WaterNetworkService {
+    + monitorNetwork()
+    + detectLeaks()
+  }
+
+  class SmartIrrigationService {
+    + controlIrrigation()
+    + monitorSoilMoisture()
+  }
+
+  class WaterTreatmentService {
+    + monitorQuality()
+    + optimizeTreatment()
+  }
+}
+@enduml
+"""

@@ -1,0 +1,12 @@
+# 2. Smart Irrigation
+uml_elements["SmartIrrigation"] = """
+@startuml
+package "Riego Inteligente" {
+  class SmartIrrigation {
+    + id: String
+    + soilMoisture: Double
+    + optimizeIrrigation()
+  }
+}
+@enduml
+"""

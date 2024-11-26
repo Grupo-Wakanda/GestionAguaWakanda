@@ -1,0 +1,13 @@
+# 1. Water Network
+uml_elements["WaterNetwork"] = """
+@startuml
+package "Red de Agua" {
+  class WaterNetwork {
+    + id: String
+    + status: String
+    + detectLeaks()
+    + monitorPressure()
+  }
+}
+@enduml
+"""
